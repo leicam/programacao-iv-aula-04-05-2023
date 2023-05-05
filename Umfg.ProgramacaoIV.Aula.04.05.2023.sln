@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umfg.Repositorio", "Umfg.Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umfg.IoC", "Umfg.IoC\Umfg.IoC.csproj", "{86F69A6C-0587-4D52-BDE9-317D7ACCDD2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umfg.WebApi", "Umfg.WebApi\Umfg.WebApi.csproj", "{A463F9B9-823E-4F01-B1E2-88A220E47345}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{86F69A6C-0587-4D52-BDE9-317D7ACCDD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F69A6C-0587-4D52-BDE9-317D7ACCDD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F69A6C-0587-4D52-BDE9-317D7ACCDD2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A463F9B9-823E-4F01-B1E2-88A220E47345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A463F9B9-823E-4F01-B1E2-88A220E47345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A463F9B9-823E-4F01-B1E2-88A220E47345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A463F9B9-823E-4F01-B1E2-88A220E47345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{0FCEA2A8-2894-41A4-9B8B-F2A7C5A0679A} = {023FC71E-A3D6-477E-8640-614E7A4982C9}
 		{9DEC5BD4-DDBB-412C-87A1-3C17639608C5} = {1F8D4BBB-E29B-4588-A8E8-21A47B31D8EF}
 		{86F69A6C-0587-4D52-BDE9-317D7ACCDD2B} = {0FCEA2A8-2894-41A4-9B8B-F2A7C5A0679A}
+		{A463F9B9-823E-4F01-B1E2-88A220E47345} = {03D40D60-2831-477C-9E1F-4DC6C8EB3B90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A45963A1-13D5-41A0-8D0D-7578BE4D503B}

@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SimpleInjector" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Umfg.Dominio\Umfg.Dominio.csproj" />
+    <ProjectReference Include="..\Umfg.Repositorio\Umfg.Repositorio.csproj" />
+    <ProjectReference Include="..\Umfg.Servicos\Umfg.Aplicacao.csproj" />
+  </ItemGroup>
+
 </Project>

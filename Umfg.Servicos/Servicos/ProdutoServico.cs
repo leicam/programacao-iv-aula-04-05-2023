@@ -10,24 +10,45 @@ namespace Umfg.Aplicacao.Servicos
 {
     public class ProdutoServico : IProdutoServico
     {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ProdutoServico(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         public Produto Gravar(Produto produto)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(produto.Descricao))
+                throw new ArgumentNullException(nameof(produto.Descricao));
+
+            if (produto.Valor <= 0.0m)
+                throw new ApplicationException($"Valor {produto.Valor} inválido! Verifique");
+
+            _unitOfWork.ProdutoRepositorio.Adicionar(produto);
+
+            return produto;
         }
 
         public Produto ObterProdutoPorCodigoBarra(string codigoBarra)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.ProdutoRepositorio.ObterTodos()
+                 .FirstOrDefault(x => x.CodigoBarra == codigoBarra);
         }
 
         public List<Produto> ObterTodos()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.ProdutoRepositorio.ObterTodos();
         }
 
         public void RemoverPorCodigoBarra(string codigoBarra)
         {
-            throw new NotImplementedException();
+            var produto = ObterProdutoPorCodigoBarra(codigoBarra);
+
+            if (produto == null)
+                throw new ArgumentNullException($"Produto para código {codigoBarra} não encontrado! Verifique.");
+
+            _unitOfWork.ProdutoRepositorio.Remover(produto);
         }
     }
 }

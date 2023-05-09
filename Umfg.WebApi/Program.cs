@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using SimpleInjector;
+using System.Configuration;
+using Umfg.IoC;
+using Umfg.Repositorio.Classes;
+
 namespace Umfg.WebApi
 {
     public class Program
     {
+        private static Container _container = new Container();
+
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +21,20 @@ namespace Umfg.WebApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddSimpleInjector(_container, options =>
+            {
+                options.AddAspNetCore().AddControllerActivation();
+            });
+
+            builder.Services.AddDbContext<MySqlDataBaseContext>(options
+                => options.UseMySQL("minha_conexao_aqui"));
+
+            Installer.Dependecy(ref _container);
+
             var app = builder.Build();
+
+            app.Services.UseSimpleInjector(_container);
+            _container.Verify();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

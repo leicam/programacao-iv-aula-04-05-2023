@@ -9,11 +9,20 @@ namespace Umfg.Repositorio.Classes
 {
     public sealed class UnitOfWork : IUnitOfWork
     {
+        private readonly MySqlDataBaseContext _mySqlDataBaseContext;
+
         public IProdutoRepositorio ProdutoRepositorio { get; private set; }
 
-        public UnitOfWork(IProdutoRepositorio produtoRepositorio)
+        public UnitOfWork(MySqlDataBaseContext mySqlDataBaseContext,
+            IProdutoRepositorio produtoRepositorio)
         {
+            _mySqlDataBaseContext = mySqlDataBaseContext;
             ProdutoRepositorio = produtoRepositorio;
+        }
+
+        public void SaveChanges()
+        {
+            _mySqlDataBaseContext.SaveChanges();
         }
     }
 }

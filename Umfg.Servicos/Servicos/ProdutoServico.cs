@@ -26,7 +26,7 @@ namespace Umfg.Aplicacao.Servicos
                 throw new ApplicationException($"Valor {produto.Valor} inválido! Verifique");
 
             _unitOfWork.ProdutoRepositorio.Adicionar(produto);
-            //_unitOfWork.SaveChanges();
+            _unitOfWork.SaveChanges();
 
             return produto;
         }
